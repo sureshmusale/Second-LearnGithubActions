@@ -10,4 +10,4 @@ jobs:
     steps:
       - name: Step name
         run: |
-          echo " you should see this in only development"
+          echo " you should see this in only development branch only"
