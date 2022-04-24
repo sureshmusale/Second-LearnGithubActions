@@ -18,9 +18,8 @@ jobs:
           #git remote add origin "clone url passed here"
           #url to authorise with github-token
           git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
-          #https://github.com/sureshmusale/Second-LearnGithubActions.git
-          git config --global user.email "boss@suresh.com"
-          git config --global user.name "boss-suresh"
+          git config --global user.email "sureshbe405@gmail.com"
+          git config --global user.name "sureshmusale"
           git fetch
           git checkout "master"
           git branch --set-upstream-to=origin/master
