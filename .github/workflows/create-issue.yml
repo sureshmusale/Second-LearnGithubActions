@@ -1,4 +1,4 @@
-name: CreateIssueWorkflow
+name: CreateIssueWorkflow GitHub API
 on: [ push ]
     #branches:
     #  - "master"
@@ -9,6 +9,28 @@ jobs:
     permissions:
       issues: write 
     steps:
+      - name: Push Random file 
+        run: |
+          pwd  # where we are working directory
+          ls -a # list files in working directory
+          # instead of checkout action we have to clone ourselves in working directory
+          git init
+          #git remote add origin "clone url passed here"
+          #url to authorise with github-token
+          git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
+          #https://github.com/sureshmusale/Second-LearnGithubActions.git
+          git config --global user.email "boss@suresh.com"
+          git config --global user.name "boss-suresh"
+          git fetch
+          git checkout "master"
+          git branch --set-upstream-to=origin/master
+          git pull
+          ls -a
+          echo $RANDOM >> random.txt
+          ls -a
+          git add -A
+          git commit -m "save random file"
+          git push
       - name: Create issue using REST API
         run: |
           curl --request POST \
