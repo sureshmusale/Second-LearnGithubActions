@@ -1,0 +1,13 @@
+name: Github actions workflow
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step name
+        run: |
+          echo "i ma back"
