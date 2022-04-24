@@ -1,8 +1,7 @@
 name: CreateIssueWorkflow
-on:
-  push:
-    branches:
-      - "master"
+on: [ push ]
+    #branches:
+    #  - "master"
 #You can use the GITHUB_TOKEN to make authenticated API calls. This example workflow creates an issue using the GitHub REST API:
 jobs:
   create_issue:
