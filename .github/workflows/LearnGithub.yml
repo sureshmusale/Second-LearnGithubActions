@@ -10,4 +10,5 @@ jobs:
     steps:
       - name: Step name
         run: |
-          echo "i ma back"
+          ls -a
+          pwd
