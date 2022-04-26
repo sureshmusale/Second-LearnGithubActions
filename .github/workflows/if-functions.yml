@@ -26,7 +26,7 @@ jobs:
       - name: this should run what happens in the workflow
         if: always()
         run: |
-          echo "Always() I will always run"
+          echo "Always() I will always run "
         
           # we also have always(), cancelled()
           # we can use always() when you want some thing to run when the previous step is failed
