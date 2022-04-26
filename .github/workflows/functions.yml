@@ -1,6 +1,6 @@
 name: Functions script
 
-on: [push]
+on: [ push ]
 
 jobs:
   Functions:
@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Functions steps
         run: !
-          echo ${{ contains('hello', 'll') }}
-          echo ${{ startswith('hello', 'he') }}
-          echo ${{ endswith('hello', 'o') }}
-          echo ${{ format('hello {0} {1} {3}', 'world' '#' '%') }}
+          echo ${{ contains( 'hello', 'll' ) }}
+          echo ${{ startswith( 'hello', 'he' ) }}
+          echo ${{ endswith( 'hello', 'o' ) }}
+          echo ${{ format( 'hello {0} {1} {3}', 'world' '#' '%' ) }}
