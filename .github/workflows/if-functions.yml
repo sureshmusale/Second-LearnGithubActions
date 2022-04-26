@@ -10,7 +10,8 @@ jobs:
         echo "This is first step"
   Second-job:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' #this is added at the job level so the below command will run 
+                                            #only when pull request is triggered
     steps:
       - name: First - Step 
         run: |
@@ -22,3 +23,11 @@ jobs:
       - name: Third Step
         run: |
           echo "this step is executed due to the Failure() addition"
+      - name: this should run what happens in the workflow
+        if: always()
+        run: |
+          echo "Always() I will always run"
+        
+          # we also have always(), cancelled()
+          # we can use always() when you want some thing to run when the previous step is failed
+          # and no matter what happens in our workflow
