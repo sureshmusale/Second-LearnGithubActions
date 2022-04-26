@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Functions steps
-        run: !
+        run: |
           echo ${{ contains( 'hello', 'll' ) }}
           echo ${{ startswith( 'hello', 'he' ) }}
           echo ${{ endswith( 'hello', 'o' ) }}
