@@ -9,6 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: decrypt file
+ # use this command to encrypt the file   gpg --symmetric --cipher-algo AES256 encrypted1.json
+
         run: gpg --quiet --batch --yes --decrypt  --passphrase="$PASSPHRASE" --output $HOME/secrets.json encrypted1.json.gpg
         env:
           PASSPHRASE: ${{secrets.PASSPHRASE}}
