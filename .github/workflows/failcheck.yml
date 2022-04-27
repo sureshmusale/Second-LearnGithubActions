@@ -1,0 +1,17 @@
+name: Fail-Check
+
+on: [push]
+
+jobs:
+  failcheck-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: failcheckstep
+        run: |
+          echo "STep 1"
+      - name: Step 2
+        if: failure()
+        run: |
+          echo "Step 3"
+
+        
