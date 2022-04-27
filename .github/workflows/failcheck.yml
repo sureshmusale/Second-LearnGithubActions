@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: failcheckstep
-        #continue-on-error: true
-        continue-on-error: false
+        continue-on-error: true  # if is is set to "true" then you are telling code to continue if error occurs
+        #continue-on-error: false  # if set to false then it will not proceed.
         run: |
           eecho "STep 1" #for sure this step will fail but if you want to run the next step then 
             # you have to add failure() in the step which you need to run at any cost
