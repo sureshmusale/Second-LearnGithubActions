@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: failcheckstep
         run: |
-          echo "STep 1"
+          eecho "STep 1"
       - name: Step 2
         if: failure()
         run: |
