@@ -7,8 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: failcheckstep
+        continue-on-error: true
         run: |
-          echo "STep 1" #for sure this step will fail but if you want to run the next step then 
+          eecho "STep 1" #for sure this step will fail but if you want to run the next step then 
             # you have to add failure() in the step which you need to run at any cost
       - name: Step 2
         #if: failure() 
