@@ -10,16 +10,17 @@ jobs:
         echo "This is first step"
   Second-job:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' #this is added at the job level so the below command will run 
+    #if: github.event_name == 'push' #this is added at the job level so the below command will run 
                                             #only when pull request is triggered
     steps:
       - name: First - Step 
         run: |
           echo "this is second job runs only on pull_request"
       - name: Second step
+        #if: github.event_name == 'pull_request'
         run: |
           echo "Second Step executed"
-        if: failure() #job status function this will returns true only when the previous step failed
+        if: failure() && github.event_name == 'push' #job status function this will returns true only when the previous step failed
       - name: Third Step
         run: |
           echo "this step is executed due to the Failure() addition"
