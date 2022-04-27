@@ -18,7 +18,7 @@ jobs:
           echo "this is second job runs only on pull_request"
       - name: Second step
         run: |
-          eecho "Second Step executed"
+          echo "Second Step executed"
         if: failure() #job status function this will returns true only when the previous step failed
       - name: Third Step
         run: |
