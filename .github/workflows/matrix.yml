@@ -8,7 +8,8 @@ jobs:
       matrix:
         os: [macos-latest, ununtu-latest, windows-latest]
         node-version: [6,8q,10]
-      fail-fast: true
+      #fail-fast: true  #if true nothing will run, if false it will run
+      fail-fast: false
       #max-parallel: 2 #setting up the parallel jobs to certain count
     runs-on: ubuntu-latest
     steps:
