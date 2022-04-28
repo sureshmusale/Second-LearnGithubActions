@@ -7,17 +7,30 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, ununtu-latest, windows-latest]
-        node-version: [6,8q,10]
+        node-version: [6,8,10] # 3 by 3 matrix which runs 9 times here
+        include: # this will add extra variable to the job when the job is runnignfor ubuntu
+          - os: ubuntu-latest
+            node-version: 8
+            is-ubuntu-8: true
+        exclude:  # this will exclude configurations to run
+          - os: ubuntu-latest
+            node-version: 6
+          - os: macos-latest
+            node-version: 8
       #fail-fast: true  #if true nothing will run, if false it will run
       fail-fast: false
       #max-parallel: 2 #setting up the parallel jobs to certain count
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    env:
+      is-ubuntu-8: ${{matrix.is-ubuntu-8}}
     steps:
       - name: log node version
         run: node -v
       - uses: actions/setup-node@v3
         with:    # for this action input will be given by with command
           #node-version: 6
-          node-version: ${{matrix.node-version}}
+          node-version: ${{matrix.node-version}} 
       - name: log node version again
-        run: node -v
+        run: |
+          node -v
+          echo $is-ubuntu-8
