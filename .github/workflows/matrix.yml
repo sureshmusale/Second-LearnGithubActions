@@ -1,0 +1,23 @@
+name: Matrix
+
+on: push
+
+jobs:
+  node-version:
+    strategy:
+      matrix:
+        os: [macos-latest, ununtu-latest, windows-latest]
+        node-version: [6,8q,10]
+      #fail-fast: true  #if true nothing will run, if false it will run
+      fail-fast: false
+      #max-parallel: 2 #setting up the parallel jobs to certain count
+    runs-on: ubuntu-latest
+    steps:
+      - name: log node version
+        run: node -v
+      - uses: actions/setup-node@v3
+        with:    # for this action input will be given by with command
+          #node-version: 6
+          node-version: ${{matrix.node-version}}
+      - name: log node version again
+        run: node -v

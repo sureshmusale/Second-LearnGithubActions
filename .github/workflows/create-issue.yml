@@ -4,6 +4,18 @@ on: [ push ]
     #  - "master"
 #You can use the GITHUB_TOKEN to make authenticated API calls. This example workflow creates an issue using the GitHub REST API:
 jobs:
+  decrypt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: decrypt file
+ # use this command to encrypt the file   gpg --symmetric --cipher-algo AES256 encrypted1.json
+
+        run: gpg --quiet --batch --yes --decrypt  --passphrase="$PASSPHRASE" --output $HOME/secrets.json encrypted1.json.gpg
+        env:
+          PASSPHRASE: ${{secrets.PASSPHRASE}}
+      - name: print our file content 
+        run: cat $HOME/secrets.json test.json
   create_issue:
     runs-on: ubuntu-latest 
     permissions:
