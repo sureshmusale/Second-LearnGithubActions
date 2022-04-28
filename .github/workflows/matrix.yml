@@ -11,7 +11,7 @@ jobs:
         include: # this will add extra variable to the job when the job is runnignfor ubuntu
           - os: ubuntu-latest
             node-version: 8
-            is-ubuntu-8: true
+            UBUNTU-8: true
         exclude:  # this will exclude configurations to run
           - os: ubuntu-latest
             node-version: 6
@@ -22,7 +22,7 @@ jobs:
       #max-parallel: 2 #setting up the parallel jobs to certain count
     runs-on: ${{ matrix.os }}
     env:
-      is-ubuntu-8: ${{matrix.is-ubuntu-8}}
+      UBUNTU-8: ${{matrix.UBUNTU-8}}
     steps:
       - name: log node version
         run: node -v
@@ -33,4 +33,4 @@ jobs:
       - name: log node version again
         run: |
           node -v
-          echo $is-ubuntu-8
+          echo $UBUNTU-8
