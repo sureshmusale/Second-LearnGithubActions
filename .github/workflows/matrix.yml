@@ -6,8 +6,8 @@ jobs:
   node-version:
     strategy:
       matrix:
-        os: [macos-latests, ununtu-latest, windows-latest]
-        node_version: [6,8,10]
+        os: [macos-latest, ununtu-latest, windows-latest]
+        node-version: [6,8,10]
       fail-fast: true
       #max-parallel: 2 #setting up the parallel jobs to certain count
     runs-on: ubuntu-latest
@@ -17,6 +17,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:    # for this action input will be given by with command
           #node-version: 6
-          node_version: ${{matrix.node_version}}
+          node-version: ${{matrix.node-version}}
       - name: log node version again
         run: node -v
