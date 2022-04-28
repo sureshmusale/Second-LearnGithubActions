@@ -6,9 +6,9 @@ jobs:
   node-version:
     strategy:
       matrix:
-        os: [macos-latest, ununtu-latest, windows-latest]
+        os: [macos-latests, ununtu-latest, windows-latest]
         node_version: [6,8,10]
-      #fail-fast: true
+      fail-fast: true
       #max-parallel: 2 #setting up the parallel jobs to certain count
     runs-on: ubuntu-latest
     steps:
