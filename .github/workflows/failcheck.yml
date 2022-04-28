@@ -1,0 +1,23 @@
+name: Fail-Check
+
+on: [push]
+
+jobs:
+  failcheck-job:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360 # if your job takes more than 360 minutes then this job is auto cancelled
+    steps:
+      - name: failcheckstep
+        timeout-minutes: 1
+        continue-on-error: true  # if is is set to "true" then you are telling code to continue if error occurs
+        #continue-on-error: false  # if set to false then it will not proceed.
+        run: |
+          eecho "STep 1" #for sure this step will fail but if you want to run the next step then 
+            # you have to add failure() in the step which you need to run at any cost
+      - name: Step 2
+        #if: failure() 
+        run: |
+          echo "Step 2"
+      - name: Step 3
+        run: |
+          echo "STep 3"
