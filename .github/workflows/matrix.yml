@@ -6,7 +6,7 @@ jobs:
   node-version:
     strategy:
       matrix:
-        os: [macos-latest, ununtu-latest, windows-latest]
+        os: [macos-latest, ubuntu-latest, windows-latest]
         node-version: [6,8,10] # 3 by 3 matrix which runs 9 times here
         include: # this will add extra variable to the job when the job is runnignfor ubuntu
           - os: ubuntu-latest
